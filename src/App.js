@@ -1,11 +1,13 @@
 import './App.css';
+import AppSpaceX from "./components/App-SpaceX";
 
 function App() {
-  return (
-    <div className="App">
 
-    </div>
-  );
+    return (
+        <>
+            <AppSpaceX/>
+        </>
+    );
 }
 
 export default App;
