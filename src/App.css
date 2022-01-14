@@ -1,0 +1,33 @@
+.blocks {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.users {
+    box-sizing: border-box;
+    border: turquoise solid thin;
+    width: 40%;
+}
+
+ul:hover {
+    background-color: ghostwhite;
+    box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset, rgba(0, 0, 0, 0.9) 0 0 0 1px;
+}
+
+div > ul {
+    box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
+}
+
+.posts {
+    box-sizing: border-box;
+    border: turquoise solid thin;
+    width: 60%;
+}
+
+.comments {
+    box-sizing: border-box;
+    border: turquoise solid thin;
+    width: 100%;
+}
