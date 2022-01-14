@@ -1,7 +1,7 @@
+import {useEffect, useState} from "react";
+
 import '../../App.css';
 import Post from "../User_Post_Comment/Post";
-
-import {useEffect, useState} from "react";
 
 
 function Posts() {

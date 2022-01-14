@@ -1,7 +1,7 @@
+import {useEffect, useState} from "react";
+
 import '../../App.css';
 import User from "../User_Post_Comment/User";
-
-import {useEffect, useState} from "react";
 
 
 function Users() {
