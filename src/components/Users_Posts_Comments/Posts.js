@@ -1,26 +1,25 @@
 import {useEffect, useState} from "react";
 
-import '../../App.css';
+import './Users_Posts_Comments.css';
 import Post from "../User_Post_Comment/Post";
+import {Post_service} from "../../services/Post_service";
 
 
-function Posts() {
+function Posts({userId, getPostId}) {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
 
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(value => setPosts(value))
+        Post_service.postByUserId(userId).then(value=>setPosts(value))
 
-    }, []);
+    }, [userId]);
 
     return (
         <div className='posts'>
 
-            {posts.map(value =>
-                <Post key={value.id} userId={value.userId} title={value.title} body={value.body}/>)}
+            {posts.map(post =>
+                <Post key={post.id} post={post} getPostId={getPostId}/>)}
         </div>
     );
 }

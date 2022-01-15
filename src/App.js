@@ -3,13 +3,26 @@ import Users from "./components/Users_Posts_Comments/Users";
 import Posts from "./components/Users_Posts_Comments/Posts";
 import Comments from "./components/Users_Posts_Comments/Comments";
 
+import {useState} from "react";
+
 function App() {
+    const [userId, setUserId] = useState(null);
+    const [postId, setPostId] = useState(null);
+
+    const getUserId = (id) => {
+        setUserId(id)
+            getPostId(null);
+    };
+
+    const getPostId = (id) => {
+        setPostId(id);
+    };
 
     return (
         <div className='blocks'>
-            <Users/>
-            <Posts/>
-            <Comments/>
+            <Users getUserId={getUserId}/>
+            {userId && <Posts userId={userId} getPostId={getPostId}/>}
+            {postId && <Comments postId={postId}/>}
         </div>
     );
 }

@@ -1,26 +1,25 @@
 import {useEffect, useState} from "react";
 
-import '../../App.css';
+import './Users_Posts_Comments.css';
 import Comment from "../User_Post_Comment/Comment";
+import {Comments_service} from "../../services/Comments_service";
 
 
-function Comments() {
+function Comments({postId}) {
 
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
 
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(response => response.json())
-            .then(value => setComments(value))
+        Comments_service.commentByPostId(postId).then(value => setComments(value))
 
-    }, []);
+    }, [postId]);
 
     return (
         <div className='comments'>
-            {comments.map(value =>
-                <Comment key={value.id} postId={value.postId} name={value.name} email={value.email}
-                         body={value.body}/>)}
+
+            {comments.map(comment =>
+                <Comment key={comment.id} comment={comment}/>)}
         </div>
     );
 }

@@ -1,30 +1,51 @@
-const User = ({id, name, username, email, phone, website, cName, cCP, cBs, aStreet, aSuite, aCity, aZipcode, lat, lng }) => {
+import './Buttons.css'
+
+const User = ({
+                  user: {
+                      id,
+                      name,
+                      username,
+                      email,
+                      phone,
+                      website,
+                      address: {
+                          street, suite, city, zipcode,
+                          geo: {lat, lng}
+                      },
+                      company: {catchPhrase, bs}
+                  },
+                  cName,
+                  getUserId
+              }) => {
 
     return (
-        <ul>
-            <li>ID: {id}</li>
-            <li>name: {name}</li>
-            <li>username: {username}</li>
-            <li>email: {email}</li>
-            <ul title='address'>
-                <li>street: {aStreet}</li>
-                <li>suite: {aSuite}</li>
-                <li>City: {aCity}</li>
-                <li>zipcode: {aZipcode}</li>
-                <ul title='geo'>
-                    <li>lat: {lat}</li>
-                    <li>lng: {lng}</li>
+        <div>
+            <ul>
+                <li><b>ID:</b> <i>{id}</i></li>
+                <li><b>name:</b> <i>{name}</i></li>
+                <li><b>username:</b> <i>{username}</i></li>
+                <li><b>email:</b> <i>{email}</i></li>
+                <ul title='address'>
+                    <li><b>street:</b> <i>{street}</i></li>
+                    <li><b>suite:</b> <i>{suite}</i></li>
+                    <li><b>City:</b> <i>{city}</i></li>
+                    <li><b>zipcode:</b> <i>{zipcode}</i></li>
+                    <ul title='geo'>
+                        <li><b>lat:</b> <i>{lat}</i></li>
+                        <li><b>lng:</b> <i>{lng}</i></li>
+                    </ul>
+                </ul>
+                <li><b>phone:</b> <i>{phone}</i></li>
+                <li><b>website:</b> <i>{website}</i></li>
+                <ul title='Company'>
+                    <li><b>name:</b> <i>{cName}</i></li>
+                    <li><b>catchPhrase:</b> <i>{catchPhrase}</i></li>
+                    <li><b>bs:</b> <i>{bs}</i></li>
                 </ul>
             </ul>
-            <li>phone: {phone}</li>
-            <li>website: {website}</li>
-            <ul title='Company'>
-                <li>name: {cName}</li>
-                <li>catchPhrase: {cCP}</li>
-                <li>bs: {cBs}</li>
-            </ul>
-        </ul>
+            <button onClick={() => getUserId(id)}>Get Posts</button>
+        </div>
     );
-}
+};
 
 export default User;

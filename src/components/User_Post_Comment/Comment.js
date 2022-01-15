@@ -1,4 +1,4 @@
-const Comment = ({postId, name, email, body}) => {
+const Comment = ({comment: {postId, name, email, body}}) => {
     return (
         <ul>
             <li>postId: {postId}</li>
@@ -7,6 +7,6 @@ const Comment = ({postId, name, email, body}) => {
             <li>body: {body}</li>
         </ul>
     );
-}
+};
 
 export default Comment;

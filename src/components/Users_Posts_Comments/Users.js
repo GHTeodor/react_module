@@ -1,18 +1,17 @@
 import {useEffect, useState} from "react";
 
-import '../../App.css';
+import './Users_Posts_Comments.css';
 import User from "../User_Post_Comment/User";
+import {User_service} from "../../services/User_service";
 
 
-function Users() {
+function Users({getUserId}) {
 
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
 
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(value => setUsers(value))
+        User_service.getAll().then(value => setUsers(value));
 
     }, []);
 
@@ -20,12 +19,7 @@ function Users() {
         <div className='users'>
 
             {users.map(value =>
-                <User key = {value.id} id = {value.id} name = {value.name} username = {value.username}
-                      email = {value.email} aStreet = {value.address.street} aSuite = {value.address.suite}
-                      aCity = {value.address.city} aZipcode = {value.address.zipcode} lat = {value.address.geo.lat}
-                      lng = {value.address.geo.lng} phone={value.phone} website = {value.website}
-                      cName = {value.company.name} cCP = {value.company.catchPhrase} cBs = {value.company.bs}/>)}
-
+                <User key={value.id} user={value} cName={value.company.name} getUserId={getUserId}/>)}
         </div>
     );
 }
