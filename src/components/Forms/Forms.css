@@ -1,0 +1,27 @@
+input {
+    font-size: 14pt;
+    color: blue;
+    background-color: ghostwhite;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+button {
+    background-color: darkorange;
+    font-size: 14pt;
+}
+
+::placeholder {
+    color: cornflowerblue;
+}
+
+
+#createCar {
+    border: medium double darkorange;
+    margin: 10px;
+}
+.createCar {
+    color: transparent;
+    background-color: ghostwhite;
+}
+

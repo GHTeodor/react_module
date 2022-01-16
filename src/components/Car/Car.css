@@ -1,0 +1,16 @@
+div {
+    border-right: black double thin;
+    border-left: black double thin;
+}
+
+.car {
+    width: 33%;
+    box-sizing: border-box;
+}
+
+button {
+    align-items: end;
+    color: white;
+    background-color: deeppink;
+    border-radius: 5px;
+}
