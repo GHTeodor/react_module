@@ -4,7 +4,7 @@ const Form = ({getFilter}) => {
     const [form, setForm] = useState({name: '', username: '', email: ''});
     const formCatch = (e) => {
         const eventData = {...form, [e.target.name]: e.target.value};
-        setForm({...form, ...eventData});
+        setForm({...eventData});
         getFilter(eventData);
     };
     return (
