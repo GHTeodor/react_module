@@ -22,6 +22,7 @@ function App() {
         });
 
         carServices.deleteById(carId).then(value => setCarId(value));
+
     }, [carId, creatorByBtn]);
 
     const getFilter = (data) => {
@@ -39,15 +40,11 @@ function App() {
         setFilteredCars(filterArr);
     };
 
-    const getCarId = (id) => {
-        setCarId(id);
-    };
-
     return (
         <>
             <Forms getFilter={getFilter} create={setCreatorByBtn}/>
             <br/>
-            <Cars cars={filteredCar} getCarId={getCarId} carId={carId}/>
+            <Cars cars={filteredCar} getCarId={setCarId} carId={carId}/>
         </>
     );
 }

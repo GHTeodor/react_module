@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useForm} from "react-hook-form";
 
 import './Forms.css'
@@ -41,6 +41,9 @@ const Forms = ({getFilter, setCreatorByBtn}) => {
                 <input type="number" min="1990" max="2022" placeholder="Year" name={"year"} value={form.year}
                        defaultValue={''} {...register('year')}
                        onChange={formCatch}/>
+                {/*{formError.model && <span>{formError.model[0]}</span>}*/}
+                {/*{formError.price && <span>{formError.price[0]}</span>}*/}
+                {/*{formError.year && <span>{formError.year[0]}</span>}*/}
                 <button>Create</button>
             </form>
         </>

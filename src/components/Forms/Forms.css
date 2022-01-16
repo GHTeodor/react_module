@@ -14,14 +14,3 @@ button {
 ::placeholder {
     color: cornflowerblue;
 }
-
-
-#createCar {
-    border: medium double darkorange;
-    margin: 10px;
-}
-.createCar {
-    color: transparent;
-    background-color: ghostwhite;
-}
-
