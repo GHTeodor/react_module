@@ -4,12 +4,12 @@ import './Cars.css';
 import Car from "../Car/Car";
 
 
-const Cars = ({cars, getCarId}) => {
+const Cars = ({cars, deleter}) => {
 
     return (
         <div className='cars'>
             {cars.map(car =>
-                <Car key={car.id} car={car} getCarId={getCarId}/>)}
+                <Car key={car.id} car={car} deleter={deleter}/>)}
         </div>
     );
 };

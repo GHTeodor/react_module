@@ -20,10 +20,11 @@ function App() {
             setCars([...value]);
             setFilteredCars([...value]);
         });
-
-        carServices.deleteById(carId).then(value => setCarId(value));
-
     }, [carId, creatorByBtn]);
+
+    const deleter = (carId) => {
+        carServices.deleteById(carId).then(value => setCarId(value));
+    }
 
     const getFilter = (data) => {
         let filterArr = [...cars];
@@ -42,9 +43,9 @@ function App() {
 
     return (
         <>
-            <Forms getFilter={getFilter} create={setCreatorByBtn}/>
+            <Forms getFilter={getFilter} setCreatorByBtn={setCreatorByBtn}/>
             <br/>
-            <Cars cars={filteredCar} getCarId={setCarId} carId={carId}/>
+            <Cars deleter={deleter} cars={filteredCar} carId={carId}/>
         </>
     );
 }
