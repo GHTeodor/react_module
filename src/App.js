@@ -1,9 +1,10 @@
+import {useState} from "react";
+
 import './App.css';
 import Users from "./components/Users_Posts_Comments/Users";
 import Posts from "./components/Users_Posts_Comments/Posts";
 import Comments from "./components/Users_Posts_Comments/Comments";
 
-import {useState} from "react";
 
 function App() {
     const [userId, setUserId] = useState(null);
