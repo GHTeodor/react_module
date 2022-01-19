@@ -14,7 +14,7 @@ const PostPage = () => {
         }
 
         post_Service.getOneById(id).then(value => setPost({...value}));
-    },[id]);
+    }, [id]);
 
 
     return (

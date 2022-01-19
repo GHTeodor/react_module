@@ -17,7 +17,7 @@ const UserPostsPage = () => {
         }
 
         user_Service.getUserPosts(id).then(value => setUserPosts({...value}));
-    },[id]);
+    }, [id]);
 
     return (
         <>

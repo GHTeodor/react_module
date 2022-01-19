@@ -2,7 +2,16 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 import './App.css';
 import Layout from "./components/Layout/Layout";
-import {CommentPage, CommentsPage, NotFoundPage, PostPage, PostsPage, UserPage, UsersPage, UserPostsPage} from './pages';
+import {
+    CommentPage,
+    CommentsPage,
+    NotFoundPage,
+    PostPage,
+    PostsPage,
+    UserPage,
+    UsersPage,
+    UserPostsPage
+} from './pages';
 
 function App() {
     return (

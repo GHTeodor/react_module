@@ -44,7 +44,7 @@ const UserPage = () => {
                             <li><b>bs:</b> <i>{user.company.bs}</i></li>
                         </ul>
                     </ul>
-                    <Link to={'posts'} state={{...state}} >
+                    <Link to={'posts'} state={{...state}}>
                         <button>Get Posts</button>
                     </Link>
 

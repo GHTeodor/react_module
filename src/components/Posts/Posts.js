@@ -7,7 +7,7 @@ const Posts = ({post}) => {
 
     return (
         <div>
-            <Link to={id.toString()} state={post}>{title[0].toUpperCase()+title.substring(1)}</Link>
+            <Link to={id.toString()} state={post}>{title[0].toUpperCase() + title.substring(1)}</Link>
         </div>
     );
 };
