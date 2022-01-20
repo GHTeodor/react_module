@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams, Link, Outlet} from "react-router-dom";
 
 import {post_Service} from "../../../services/post_Service";
 
@@ -25,6 +25,12 @@ const PostPage = () => {
                     <div><b>userId:</b> {post.userId}</div>
                     <div><b>title:</b> {post.title}</div>
                     <div><b>body:</b> {post.body}</div>
+
+                    <Link to={'comments'} state={{...state}}>
+                        <button>Get Comments</button>
+                    </Link>
+
+                    <Outlet/>
                 </>
             )}
         </>

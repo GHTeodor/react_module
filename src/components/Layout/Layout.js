@@ -10,7 +10,6 @@ const Layout = () => {
             <header>
                 <NavLink to="/users"><h3>Users</h3></NavLink>
                 <NavLink to="/posts"><h3>Posts</h3></NavLink>
-                <NavLink to="/comments"><h3>Comments</h3></NavLink>
             </header>
             <div className="content">
                 <Outlet/>
