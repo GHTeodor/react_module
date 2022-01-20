@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
-import {post_Service} from "../../../../services/post_Service";
 
+import {post_Service} from "../../../../services/post_Service";
 import PostComments from "../../../../components/Posts/PostComments";
 
 const PostCommentsPage = () => {
