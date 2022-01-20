@@ -18,7 +18,7 @@ header > a[class='active'] {
 .content {
     margin: 0 auto;
     width: 90vw;
-    height: calc(100vh - 79px);
+    height: calc(100vh - 83px);
     overflow-y: auto;
 }
 
