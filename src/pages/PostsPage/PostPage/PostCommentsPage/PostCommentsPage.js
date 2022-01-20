@@ -6,13 +6,12 @@ import PostComments from "../../../../components/Posts/PostComments";
 
 const PostCommentsPage = () => {
     const {id} = useParams();
-    const [postComments, setPostComments] = useState(null);
+    const [postComments, setPostComments] = useState([]);
     const {state} = useLocation();
 
     useEffect(() => {
-        if (state) {
-            post_Service.getPostComments(id).then(value => setPostComments(value));
-        }
+        if (state) 
+            post_Service.getPostComments(id).then(value => setPostComments([...value]));
 
     }, [id]);
 

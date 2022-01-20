@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const UserPosts = ({userPost: {id, userId, title, body}}) => {
+const Post = ({post:{id, userId, title, body}}) => {
     return (
         <div>
             <b>id:</b> {id}
@@ -12,4 +12,4 @@ const UserPosts = ({userPost: {id, userId, title, body}}) => {
     );
 };
 
-export default UserPosts;
+export default Post;

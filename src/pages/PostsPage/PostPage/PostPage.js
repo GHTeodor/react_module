@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useLocation, useParams, Link, Outlet} from "react-router-dom";
 
 import {post_Service} from "../../../services/post_Service";
+import Post from "../../../components/Posts/Post";
 
 const PostPage = () => {
     const {id} = useParams();
@@ -21,10 +22,7 @@ const PostPage = () => {
         <>
             {post && (
                 <>
-                    <div><b>id:</b> {post.id}</div>
-                    <div><b>userId:</b> {post.userId}</div>
-                    <div><b>title:</b> {post.title}</div>
-                    <div><b>body:</b> {post.body}</div>
+                    <Post key={post.id} post={post}/>
 
                     <Link to={'comments'} state={{...state}}>
                         <button>Get Comments</button>

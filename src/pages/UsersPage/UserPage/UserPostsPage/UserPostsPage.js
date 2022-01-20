@@ -7,17 +7,13 @@ import UserPosts from "../../../../components/Users/UserPosts";
 
 const UserPostsPage = () => {
     const {id} = useParams();
-    const [userPosts, setUserPosts] = useState(null);
+    const [userPosts, setUserPosts] = useState([]);
     const {state} = useLocation();
 
     useEffect(() => {
-        if (state) {
-            // setUserPosts(state);
 
-        user_Service.getUserPosts(id).then(value => setUserPosts([...value]));
-            // return;
-        }
-        // user_Service.getUserPosts(id).then(value => setUserPosts({...value}));
+        if (state)
+            user_Service.getUserPosts(id).then(value => setUserPosts([...value]));
 
     }, [id]);
 
