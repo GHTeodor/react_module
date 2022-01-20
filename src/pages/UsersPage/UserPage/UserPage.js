@@ -22,9 +22,12 @@ const UserPage = () => {
         <>
             {user && (
                 <div>
-                    <User key={user.id} user={user} />
+                    <User key={user.id} user={user}/>
                     <Link to={'posts'} state={{...state}}>
                         <button>Get Posts</button>
+                    </Link>
+                    <Link to={'albums'} state={{...state}}>
+                        <button>Get Albums</button>
                     </Link>
 
                     <Outlet/>

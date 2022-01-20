@@ -3,7 +3,17 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import './App.css';
 import Layout from "./components/Layout/Layout";
 
-import {NotFoundPage, PostPage, PostsPage, PostCommentsPage, UserPage, UsersPage, UserPostsPage} from './pages';
+import {
+    NotFoundPage,
+    PostPage,
+    PostsPage,
+    PostCommentsPage,
+    UserPage,
+    UsersPage,
+    UserPostsPage,
+    UserAlbumsPage,
+    UserAlbumPhotosPage
+} from './pages';
 
 
 function App() {
@@ -15,6 +25,9 @@ function App() {
                     <Route path={"users"} element={<UsersPage/>}>
                         <Route path={":id"} element={<UserPage/>}>
                             <Route path={"posts"} element={<UserPostsPage/>}/>
+                            <Route path={"albums"} element={<UserAlbumsPage/>}>
+                                <Route path={"photos"} element={<UserAlbumPhotosPage/>}/>
+                            </Route>
                         </Route>
                     </Route>
                     <Route path={"posts"} element={<PostsPage/>}>
