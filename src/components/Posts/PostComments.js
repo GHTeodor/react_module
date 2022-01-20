@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const PostComments = ({postComments: {postId, id, name, email, body}}) => {
     return (
         <div>
