@@ -1,22 +1,10 @@
-import {useReducer, useState} from "react";
+import React, {useReducer, useState} from "react";
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'newCat':
-            return {...state, cat: action.payload};
-        case 'newDog':
-            return {...state, dog: action.payload};
-        case 'deleteCat':
-            return {...state, cat: state.cat = ""};
-        case 'deleteDog':
-            return {...state, dog: state.dog = ""};
-        default:
-            throw new Error("???");
-    }
-};
+import {Reducer} from "./Reducer"
+
 
 const CatDog = () => {
-    const [state, dispatch] = useReducer(reducer, {cat: "", dog: ""});
+    const [state, dispatch] = useReducer(Reducer, {cat: "", dog: ""});
     const [cat, setCat] = useState({});
     const [dog, setDog] = useState({});
 
@@ -26,13 +14,11 @@ const CatDog = () => {
                 <form onSubmit={e => e.preventDefault()}>
                     <input placeholder="Add Cat" name="cat"
                            onChange={event =>
-                               setCat({payload: event.target.value})}
-                    />
+                               setCat({payload: event.target.value})}/>
                     <button onClick={() => dispatch({type: "newCat", payload: cat.payload})}>Cat</button>
                     <input placeholder="Add Dog" name="dog"
                            onChange={event =>
-                               setDog({payload: event.target.value})}
-                    />
+                               setDog({payload: event.target.value})}/>
                     <button onClick={() => dispatch({type: "newDog", payload: dog.payload})}>Dog</button>
                 </form>
             </div>
