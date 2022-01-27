@@ -7,9 +7,9 @@ const reducer = (state, action) => {
         case 'newDog':
             return {...state, dog: action.payload};
         case 'deleteCat':
-            return {...state, cat: state.cat=""};
+            return {...state, cat: state.cat = ""};
         case 'deleteDog':
-            return {...state, dog: state.dog=""};
+            return {...state, dog: state.dog = ""};
         default:
             throw new Error("???");
     }
