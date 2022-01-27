@@ -1,0 +1,13 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.form {
+    text-align: center;
+}
+
+.cat-dog {
+    display: flex;
+    justify-content: space-around;
+}

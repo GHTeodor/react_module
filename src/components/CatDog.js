@@ -1,36 +1,58 @@
-import {Component} from 'react';
+import {useReducer, useState} from "react";
 
-class CatDog extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cat: 'Cat',
-            dog: 'Dog'
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'newCat':
+            return {...state, cat: action.payload};
+        case 'newDog':
+            return {...state, dog: action.payload};
+        case 'deleteCat':
+            return {...state, cat: state.cat=""};
+        case 'deleteDog':
+            return {...state, dog: state.dog=""};
+        default:
+            throw new Error("???");
     }
+};
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+const CatDog = () => {
+    const [state, dispatch] = useReducer(reducer, {cat: "", dog: ""});
+    const [cat, setCat] = useState({});
+    const [dog, setDog] = useState({});
 
-    handleSubmit(event) {
-        alert(': ' + this.state.value);
-        event.preventDefault();
-    }
+    return (
+        <div className={'wrapper'}>
+            <div className={'form'}>
+                <form onSubmit={e => e.preventDefault()}>
+                    <input placeholder="Add Cat" name="cat"
+                           onChange={event =>
+                               setCat({payload: event.target.value})}
+                    />
+                    <button onClick={() => dispatch({type: "newCat", payload: cat.payload})}>Cat</button>
+                    <input placeholder="Add Dog" name="dog"
+                           onChange={event =>
+                               setDog({payload: event.target.value})}
+                    />
+                    <button onClick={() => dispatch({type: "newDog", payload: dog.payload})}>Dog</button>
+                </form>
+            </div>
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input placeholder="Add Cat" name="cat" value={this.state.value} onChange={this.handleChange}/>
-                <button>Cat</button>
-                <input placeholder="Add Dog" name="dog" value={this.state.value} onChange={this.handleChange}/>
-                <button>Dog</button>
-            </form>
-        );
-    }
-}
+            <hr/>
 
-export {CatDog};
+            <div className={"cat-dog"}>
+                <div>
+                    {state.cat}
+                    {state.cat &&
+                        <button onClick={() => dispatch({type: "deleteCat"})}>X</button>}
+                </div>
+                <div>
+                    {state.dog}
+                    {state.dog &&
+                        <button onClick={() => dispatch({type: "deleteDog"})}>X</button>}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default CatDog;

@@ -1,5 +1,5 @@
 import './App.css';
-import {CatDog} from "./components/CatDog";
+import CatDog from "./components/CatDog";
 
 
 function App() {
