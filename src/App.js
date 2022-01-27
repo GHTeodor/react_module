@@ -1,10 +1,12 @@
 import './App.css';
+import {CatDog} from "./components/CatDog";
+
 
 function App() {
     return (
-        <div className="App">
-
-        </div>
+        <>
+            <CatDog />
+        </>
     );
 }
 
