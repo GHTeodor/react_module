@@ -1,0 +1,13 @@
+.dFlex {
+    display: flex;
+}
+
+.border {
+    border: silver double thin;
+    padding: 10px;
+    margin: .1%;
+}
+
+.center {
+    text-align: center;
+}
