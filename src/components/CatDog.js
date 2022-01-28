@@ -1,29 +1,21 @@
-import React, {useReducer, useState} from "react";
+import {useReducer, useState} from "react";
 
 import {Reducer} from "./Reducer"
+import Cats from "./CatS&DogS/Cats";
+import Dogs from "./CatS&DogS/Dogs";
 
 
 const CatDog = () => {
     const [state, dispatch] = useReducer(Reducer, {cat: "", dog: ""});
-    const [cat, setCat] = useState(null);
-    const [dog, setDog] = useState(null);
+    const [cat, setCat] = useState([]);
+    const [dog, setDog] = useState([]);
 
     const catClick = () => {
-        if (!state.cat)
-            dispatch({type: "newCat", payload: cat});
-        else if (!state.cat1)
-            dispatch({type: "newCat1", payload: cat});
-        else
-            dispatch({type: "newCat2", payload: cat});
+        dispatch({type: "newCat", payload: cat});
     };
 
     const dogClick = () => {
-        if (!state.dog)
-            dispatch({type: "newDog", payload: dog});
-        else if (!state.dog1)
-            dispatch({type: "newDog1", payload: dog});
-        else
-            dispatch({type: "newDog2", payload: dog});
+        dispatch({type: "newDog", payload: dog});
     };
 
 
@@ -44,31 +36,17 @@ const CatDog = () => {
 
             <div className={"cat-dog"}>
                 <div>
-                    {state.cat}
                     {state.cat &&
-                        <button onClick={() => dispatch({type: "deleteCat"})}>X</button>}
-                    <br/>
-                    {state.cat1}
-                    {state.cat1 &&
-                        <button onClick={() => dispatch({type: "deleteCat1"})}>X</button>}
-                    <br/>
-                    {state.cat2}
-                    {state.cat2 &&
-                        <button onClick={() => dispatch({type: "deleteCat2"})}>X</button>}
+                        <>
+                            {state.cat.map((cat_X, index) => <Cats key={index} dispatch={dispatch} cat_X={cat_X}/>)}
+                        </>}
                 </div>
 
                 <div>
-                    {state.dog}
                     {state.dog &&
-                        <button onClick={() => dispatch({type: "deleteDog"})}>X</button>}
-                    <br/>
-                    {state.dog1}
-                    {state.dog1 &&
-                        <button onClick={() => dispatch({type: "deleteDog1"})}>X</button>}
-                    <br/>
-                    {state.dog2}
-                    {state.dog2 &&
-                        <button onClick={() => dispatch({type: "deleteDog2"})}>X</button>}
+                        <>
+                            {state.dog.map((dog_X, index) => <Dogs key={index} dispatch={dispatch} dog_X={dog_X}/>)}
+                        </>}
                 </div>
             </div>
         </div>

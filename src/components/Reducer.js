@@ -1,29 +1,13 @@
 const Reducer = (state, action) => {
     switch (action.type) {
         case 'newCat':
-            return {...state, cat: action.payload};
-        case 'newCat1':
-            return {...state, cat1: action.payload};
-        case 'newCat2':
-            return {...state, cat2: action.payload};
+            return {...state, cat: [...state.cat, action.payload]};
         case 'newDog':
-            return {...state, dog: action.payload};
-        case 'newDog1':
-            return {...state, dog1: action.payload};
-        case 'newDog2':
-            return {...state, dog2: action.payload};
+            return {...state, dog: [...state.dog, action.payload]};
         case 'deleteCat':
-            return {...state, cat: state.cat = ""};
-        case 'deleteCat1':
-            return {...state, cat1: state.cat = ""};
-        case 'deleteCat2':
-            return {...state, cat2: state.cat = ""};
+            return {...state, cat: state.cat.filter(value => value.id !== action.payload)};
         case 'deleteDog':
-            return {...state, dog: state.dog = ""};
-        case 'deleteDog1':
-            return {...state, dog1: state.dog = ""};
-        case 'deleteDog2':
-            return {...state, dog2: state.dog = ""};
+            return {...state, dog: state.dog.filter(value => value.id !== action.payload)};
 
         default:
             throw new Error("???");
