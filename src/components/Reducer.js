@@ -25,7 +25,6 @@ const Reducer = (state, action) => {
         case 'deleteDog2':
             return {...state, dog2: state.dog = ""};
 
-
         default:
             throw new Error("???");
     }

@@ -5,25 +5,25 @@ import {Reducer} from "./Reducer"
 
 const CatDog = () => {
     const [state, dispatch] = useReducer(Reducer, {cat: "", dog: ""});
-    const [cat, setCat] = useState({});
-    const [dog, setDog] = useState({});
+    const [cat, setCat] = useState(null);
+    const [dog, setDog] = useState(null);
 
     const catClick = () => {
         if (!state.cat)
-            dispatch({type: "newCat", payload: cat.payload});
+            dispatch({type: "newCat", payload: cat});
         else if (!state.cat1)
-            dispatch({type: "newCat1", payload: cat.payload});
+            dispatch({type: "newCat1", payload: cat});
         else
-            dispatch({type: "newCat2", payload: cat.payload});
+            dispatch({type: "newCat2", payload: cat});
     };
 
     const dogClick = () => {
         if (!state.dog)
-            dispatch({type: "newDog", payload: dog.payload});
+            dispatch({type: "newDog", payload: dog});
         else if (!state.dog1)
-            dispatch({type: "newDog1", payload: dog.payload});
+            dispatch({type: "newDog1", payload: dog});
         else
-            dispatch({type: "newDog2", payload: dog.payload});
+            dispatch({type: "newDog2", payload: dog});
     };
 
 
@@ -32,10 +32,10 @@ const CatDog = () => {
             <div className={'form'}>
                 <form onSubmit={e => e.preventDefault()}>
                     <input placeholder="Add Cat"
-                           onChange={event => setCat({payload: event.target.value})}/>
+                           onChange={event => setCat(event.target.value)}/>
                     <button onClick={catClick}>Cat</button>
                     <input placeholder="Add Dog"
-                           onChange={event => setDog({payload: event.target.value})}/>
+                           onChange={event => setDog(event.target.value)}/>
                     <button onClick={dogClick}>Dog</button>
                 </form>
             </div>
@@ -55,8 +55,8 @@ const CatDog = () => {
                     {state.cat2}
                     {state.cat2 &&
                         <button onClick={() => dispatch({type: "deleteCat2"})}>X</button>}
-
                 </div>
+
                 <div>
                     {state.dog}
                     {state.dog &&
