@@ -4,7 +4,7 @@ import {Reducer} from "./Reducer"
 
 
 const CatDog = () => {
-    const [state, dispatch] = useReducer(Reducer, {cat1: "", dog: ""});
+    const [state, dispatch] = useReducer(Reducer, {cat: "", dog: ""});
     const [cat, setCat] = useState({});
     const [dog, setDog] = useState({});
 
