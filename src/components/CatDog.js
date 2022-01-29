@@ -33,13 +33,13 @@ const CatDog = () => {
                 <form onSubmit={e => e.preventDefault()}>
                     <input placeholder="Add Cat" name="catInput" value={form.catInput}
                            onChange={event => {
-                               setCat({cat: event.target.value, id: state.cat.length});
+                               setCat({cat: event.target.value, id: new Date().getTime()});
                                setForm({catInput: event.target.value});
                            }}/>
                     <button onClick={catClick}>Cat</button>
                     <input placeholder="Add Dog" name="dogInput" value={form.dogInput}
                            onChange={event => {
-                               setDog({dog: event.target.value, id: state.dog.length});
+                               setDog({dog: event.target.value, id: new Date().getTime()});
                                setForm({dogInput: event.target.value});
                            }}/>
                     <button onClick={dogClick}>Dog</button>
@@ -52,14 +52,14 @@ const CatDog = () => {
                 <div>
                     {state.cat &&
                         <>
-                            {state.cat.map((cat_X, index) => <Cats key={index} dispatch={dispatch} cat_X={cat_X}/>)}
+                            {state.cat.map((cat_X) => <Cats key={cat_X.id} dispatch={dispatch} cat_X={cat_X}/>)}
                         </>}
                 </div>
 
                 <div>
                     {state.dog &&
                         <>
-                            {state.dog.map((dog_X, index) => <Dogs key={index} dispatch={dispatch} dog_X={dog_X}/>)}
+                            {state.dog.map((dog_X) => <Dogs key={dog_X.id} dispatch={dispatch} dog_X={dog_X}/>)}
                         </>}
                 </div>
             </div>
