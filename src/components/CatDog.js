@@ -13,14 +13,14 @@ const CatDog = () => {
     const [form, setForm] = useState({catInput: '', dogInput: ''});
 
     const catClick = () => {
-        setForm({catInput: ''});
+        setForm({catInput: '', dogInput: form.dogInput, value: ""});
         if (form.catInput) {
             dispatch({type: "newCat", payload: cat});
         }
     };
 
     const dogClick = () => {
-        setForm({dogInput: ''});
+        setForm({catInput: form.catInput, dogInput: '', value: ""});
         if (form.dogInput) {
             dispatch({type: "newDog", payload: dog});
         }
