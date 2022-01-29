@@ -6,9 +6,11 @@ import Dogs from "./CatS&DogS/Dogs";
 
 
 const CatDog = () => {
-    const [state, dispatch] = useReducer(Reducer, {cat: "", dog: ""});
+    const [state, dispatch] = useReducer(Reducer, {cat: [], dog: []});
     const [cat, setCat] = useState([]);
     const [dog, setDog] = useState([]);
+
+    console.log(state.cat);
 
     const catClick = () => {
         dispatch({type: "newCat", payload: cat});
@@ -24,10 +26,10 @@ const CatDog = () => {
             <div className={'form'}>
                 <form onSubmit={e => e.preventDefault()}>
                     <input placeholder="Add Cat"
-                           onChange={event => setCat(event.target.value)}/>
+                           onChange={event => setCat({cat: event.target.value, id: state.cat.length})}/>
                     <button onClick={catClick}>Cat</button>
                     <input placeholder="Add Dog"
-                           onChange={event => setDog(event.target.value)}/>
+                           onChange={event => setDog({dog: event.target.value, id: state.dog.length})}/>
                     <button onClick={dogClick}>Dog</button>
                 </form>
             </div>
