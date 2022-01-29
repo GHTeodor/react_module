@@ -13,14 +13,14 @@ const CatDog = () => {
     const [form, setForm] = useState({catInput: '', dogInput: ''});
 
     const catClick = () => {
-        setForm({catInput: '', dogInput: form.dogInput, value: ""});
+        setForm({catInput: '', dogInput: form.dogInput});
         if (form.catInput) {
             dispatch({type: "newCat", payload: cat});
         }
     };
 
     const dogClick = () => {
-        setForm({catInput: form.catInput, dogInput: '', value: ""});
+        setForm({catInput: form.catInput, dogInput: ''});
         if (form.dogInput) {
             dispatch({type: "newDog", payload: dog});
         }
@@ -31,13 +31,13 @@ const CatDog = () => {
         <div className={'wrapper'}>
             <div className={'form'}>
                 <form onSubmit={e => e.preventDefault()}>
-                    <input placeholder="Add Cat" name="catInput" value={form.catInput}
+                    <input placeholder="Add Cat" name="catInput" value={form.catInput || ""}
                            onChange={event => {
                                setCat({cat: event.target.value, id: new Date().getTime()});
                                setForm({catInput: event.target.value});
                            }}/>
                     <button onClick={catClick}>Cat</button>
-                    <input placeholder="Add Dog" name="dogInput" value={form.dogInput}
+                    <input placeholder="Add Dog" name="dogInput" value={form.dogInput || ""}
                            onChange={event => {
                                setDog({dog: event.target.value, id: new Date().getTime()});
                                setForm({dogInput: event.target.value});
