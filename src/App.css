@@ -1,0 +1,22 @@
+.App {
+    margin: auto;
+    text-align: center;
+    width: 80vw;
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.car {
+    margin: 1px;
+    width: calc(50% - 4px);
+    border: solid thin silver;
+    box-sizing: border-box;
+    padding: 5px;
+}
