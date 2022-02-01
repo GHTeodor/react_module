@@ -1,10 +1,14 @@
 import './App.css';
+import {Form, Tasks} from "./components";
+
 
 function App() {
     return (
-        <div className="App">
-
-        </div>
+        <>
+            <Form/>
+            <hr/>
+            <Tasks/>
+        </>
     );
 }
 
