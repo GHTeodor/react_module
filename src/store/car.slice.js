@@ -7,8 +7,7 @@ export const getAllCars = createAsyncThunk(
     'carSlice/getAllCars',
     async (_, {rejectWithValue}) => {
         try {
-            const cars = await carService.getAll();
-            return cars;
+            return await carService.getAll();
         } catch (e) {
             return rejectWithValue(e.message);
         }
@@ -44,7 +43,6 @@ export const updateCar = createAsyncThunk(
     async ({id, data}, {dispatch}) => {
         try {
             const updatedCAR = await carService.updateById(id, data);
-            console.log(id, data);
             dispatch(patchCar({id, data: updatedCAR}));
         } catch (e) {
             console.error('=======UPDATE CAR\n', e);
@@ -58,7 +56,8 @@ const carSlice = createSlice({
     initialState: {
         cars: [],
         status: null,
-        error: null
+        error: null,
+        carForUpdate: {}
     },
 
     reducers: {
@@ -69,8 +68,12 @@ const carSlice = createSlice({
             state.cars = state.cars.filter(car => car.id !== action.payload.id);
         },
         patchCar: (state, action) => {
-            state.cars.filter(car => car.id === action.payload.id).toString().replace(action.payload.data);
+            const index = state.cars.findIndex(car => car.id === action.payload.id);
+            state.cars[index] = action.payload.data;
         },
+        getCarForUpdate: (state, action) => {
+            state.carForUpdate = action.payload.car;
+        }
     },
 
     extraReducers: {
@@ -91,5 +94,5 @@ const carSlice = createSlice({
 
 const carReducer = carSlice.reducer;
 
-export const {addCar, deleteCar, patchCar} = carSlice.actions;
+export const {addCar, deleteCar, patchCar, getCarForUpdate} = carSlice.actions;
 export default carReducer;
