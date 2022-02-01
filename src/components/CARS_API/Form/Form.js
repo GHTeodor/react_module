@@ -3,8 +3,9 @@ import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {joiResolver} from "@hookform/resolvers/joi";
 
-import {createCar, updateCar} from "../../store";
-import {carValidator} from "../../validators/CarValidator";
+import {createCar, updateCar} from "../../../store";
+import {carValidator} from "../../../validators/CarValidator";
+import './Form.css';
 
 
 const Form = () => {

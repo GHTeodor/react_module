@@ -1,5 +1,6 @@
 import Joi from "joi";
 
+
 export const carValidator = Joi.object({
     model: Joi.string().regex(new RegExp('^[a-zA-ZА-ЯїЇґҐ]{1,20}$')).required().messages({
         'string.empty': 'поле "model" не може бути порожнім',
