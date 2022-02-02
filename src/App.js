@@ -13,6 +13,7 @@ function App() {
                 <Route path={'/users'} element={<Users/>}/>
                 <Route path={'/posts'} element={<Posts/>}/>
                 <Route path={'/comments'} element={<Comments/>}/>
+                <Route path={'*'} element={<Navigate to={"/"}/>}/>
             </Route>
         </Routes>
     );
