@@ -8,7 +8,7 @@ const Tasks = () => {
     const {tasks} = useSelector(state => state["taskReducer"]);
     return (
         <>
-            {tasks.map(task => <Task key={task.id} id={task.id} task={task["taskI"]}/>)}
+            {tasks.map(task => <Task key={task.id} id={task.id} status={task.status} task={task["taskI"]}/>)}
         </>
     );
 };

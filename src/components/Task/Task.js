@@ -1,30 +1,33 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch} from "react-redux";
 
-import {checker, removeTask} from "../../store/task.slice";
+import {changeStatus, checker, removeTask} from "../../store/task.slice";
 
 
-const Task = ({id, task: {taskI}}) => {
-    const [x, setX] = useState(false);
+const Task = ({id, task: {taskI}, status}) => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (x === true) {
+        if (status === true) {
             dispatch(checker(1));
         } else {
             dispatch(checker(-1));
         }
-    }, [dispatch, x]);
+    }, [dispatch, status]);
 
     return (
         <div>
-            <input type="checkbox" checked={x} onChange={() => setX(!x)}/>
-            {!x &&
+            <input type="checkbox" value={status} onChange={() => dispatch(changeStatus({id}))}/>
+            {!status &&
                 <b> {taskI} </b>}
-            {x &&
+            {status &&
                 <i> <s>{taskI}</s> </i>}
-            <button onClick={() => dispatch(removeTask({id}))}>X</button>
+            <button onClick={() => {
+                dispatch(removeTask({id}));
+                status ? dispatch(checker(0)) : dispatch(checker(1));
+            }}>X
+            </button>
         </div>
     );
 };

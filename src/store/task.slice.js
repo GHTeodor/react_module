@@ -16,12 +16,16 @@ const taskSlice = createSlice({
         },
         checker: (state, action) => {
             state.checkbox = state.checkbox + action.payload;
-        }
+        },
+        changeStatus: (state, action) => {
+            const toDo = state.tasks.find(todo => todo.id === action.payload.id);
+            toDo.status = !toDo.status;
+        },
     }
 });
 
 const taskReducer = taskSlice.reducer;
 
-export const {getTask, removeTask, checker} = taskSlice.actions;
+export const {getTask, removeTask, checker, changeStatus} = taskSlice.actions;
 
 export default taskReducer;
