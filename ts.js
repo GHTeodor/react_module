@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-
 var spaceX = {
     mission_name: "Starlink-15 (v1.0)",
     launch_date_local: "2020-10-24T11:31:00-04:00",
@@ -36,7 +35,9 @@ var spaceX = {
     }
 };
 console.log(spaceX);
+
 // =========================================================================================================
+
 var user = {
     name: "Max",
     age: 18,
@@ -54,5 +55,4 @@ function incAge(someUser, inc) {
 }
 console.log(sum(1, 2));
 showSum(2, 3);
-// incAge(user, 2);
 console.log(incAge(user, 2));
