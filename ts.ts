@@ -60,5 +60,4 @@ function incAge(someUser: { name: string, age: number, gender: string }, inc: nu
 
 console.log(sum(1, 2));
 showSum(2, 3);
-
 console.log(incAge(user, 2));
