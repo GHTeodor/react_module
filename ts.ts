@@ -1,4 +1,5 @@
 import {ISpaceX} from './interfaces/Space-X';
+import {IUser} from './interfaces/User';
 
 
 const spaceX: ISpaceX = {
@@ -40,11 +41,11 @@ console.log(spaceX);
 
 // =========================================================================================================
 
-const user = {
+const user: IUser = {
     name: "Max",
     age: 18,
     gender: 'male'
-}
+};
 
 function sum(a: number, b: number): number {
     return a + b
@@ -54,9 +55,9 @@ function showSum(a: number, b: number): void {
     console.log(a + b);
 }
 
-function incAge(someUser: { name: string, age: number, gender: string }, inc: number) {
-    someUser.age += inc
-    return someUser
+function incAge(someUser: IUser, inc: number): IUser {
+    someUser.age += inc;
+    return someUser;
 }
 
 console.log(sum(1, 2));

@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
-var spaceX = {
+
+let spaceX = {
     mission_name: "Starlink-15 (v1.0)",
     launch_date_local: "2020-10-24T11:31:00-04:00",
     launch_site: {
@@ -38,7 +39,7 @@ console.log(spaceX);
 
 // =========================================================================================================
 
-var user = {
+let user = {
     name: "Max",
     age: 18,
     gender: 'male'
