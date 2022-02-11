@@ -1,0 +1,29 @@
+header {
+    background: linear-gradient(45deg, rgb(2, 143, 187), rgb(3, 37, 65));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+}
+
+header > a {
+    text-decoration: none;
+    color: rgb(136, 204, 164);
+}
+
+header > a[class='active'] {
+    color: deeppink;
+    text-decoration: underline;
+}
+
+#content {
+    height: calc(100vh - 55px);
+    overflow-y: auto;
+}
+
+footer {
+    padding-right: 3%;
+    background: linear-gradient(45deg, rgb(2, 143, 187), rgb(3, 37, 65));
+    text-align: right;
+    color: rgb(136, 204, 164);
+}
