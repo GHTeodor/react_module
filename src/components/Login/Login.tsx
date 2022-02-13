@@ -8,20 +8,14 @@ const Login: FC = () => {
     const [passwordForChangeName] = useState<SetStateAction<string>>(Math.random().toString());
     const [wrongPassword, setWrongPassword] = useState<string>("");
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const handleClickOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     const changeUName = () => {
         if (form.password === passwordForChangeName) {
             setUser(form.username);
             setWrongPassword("");
         } else setWrongPassword("Wrong password");
-    };
-    const submit = (e: any) => {
-        e.preventDefault();
     };
 
     return (
@@ -31,7 +25,7 @@ const Login: FC = () => {
                 <button className="loginBTN1" onClick={handleClose}>X</button>
                 <h1>Change username</h1>
                 <p>Enter this pass to change username: <mark>{passwordForChangeName}</mark></p>
-                <form onSubmit={submit}>
+                <form onSubmit={e => e.preventDefault()}>
                     <input type="text" name="username" placeholder="username" maxLength={15}
                            onInput={(e: any) => setForm({username: e.target.value, password: form.password})}/>
                     <input type="password" name="password" placeholder="password"
