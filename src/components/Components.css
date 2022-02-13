@@ -61,3 +61,31 @@
 .genresDark {
     border-bottom: white solid thin;
 }
+
+/*Login*/
+
+#login {
+    position: absolute;
+    top: 20%;
+    background-color: darkslateblue;
+    border-radius: 15px;
+    border: double gold thick;
+    padding: 2%;
+}
+
+#login button, #login input::placeholder, #login input {
+    background-color: darkviolet;
+    color: white;
+}
+
+.loginBTN {
+    background-color: transparent;
+    filter: invert(1);
+    border-radius: 50%;
+}
+
+.loginBTN1 {
+    border-radius: 20%;
+    position: absolute;
+    right: 4%;
+}

@@ -5,3 +5,4 @@ export * from './Star-Ratings/Star-Ratings';
 export * from './PagesComponent/PagesComponent';
 export * from './Dark_Light/Dark_Light';
 export * from './Genres/Genres';
+export * from './Login/Login';
